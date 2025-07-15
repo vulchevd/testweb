@@ -109,20 +109,12 @@
     function Navbar() {
       const [isOpen, setIsOpen] = useState(false);
       const navItems = [
-        { name: "Home", section: "home" },
-        { name: "Apartments", section: "apartments" },
-        { name: "Parking", section: "parking" },
-        { name: "About", section: "about" },
-        { name: "Contact", section: "contact" }
+        { name: "Home", href: "index.html" },
+        { name: "Apartments", href: "apartments.html" },
+        { name: "Parking", href: "parking.html" },
+        { name: "About", href: "about.html" },
+        { name: "Contact", href: "contact.html" }
       ];
-
-      const scrollToSection = (sectionId) => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-          setIsOpen(false);
-        }
-      };
 
       return (
         <nav className="bg-blue-900 text-white p-4 sticky top-0 z-50 shadow-lg">
@@ -141,12 +133,12 @@
             <ul className={`md:flex space-x-6 ${isOpen ? 'block' : 'hidden'} md:block absolute md:static bg-blue-900 w-full md:w-auto left-0 top-16 p-4 md:p-0 transition-all`}>
               {navItems.map((item) => (
                 <li key={item.name}>
-                  <button 
-                    onClick={() => scrollToSection(item.section)}
+                  <a 
+                    href={item.href}
                     className="nav-link text-base font-medium hover:text-blue-300 transition-colors"
                   >
                     {item.name}
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
