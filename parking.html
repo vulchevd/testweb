@@ -24,6 +24,19 @@
     .nav-link:hover {
       color: #93c5fd;
     }
+    .apartment-card:hover {
+      transform: translateY(-10px);
+    }
+    .language-switcher img {
+      width: 30px;
+      height: 20px;
+      object-fit: cover;
+    }
+    .apartment-card img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
     #loading {
       text-align: center;
       padding: 50px;
@@ -75,7 +88,7 @@
         <nav className="bg-blue-900 text-white p-4 sticky top-0 z-50 shadow-lg">
           <div className="container mx-auto flex justify-between items-center">
             <div className="flex items-center">
-              <img src="https://via.placeholder.com/60x60?text=Logo" alt="Logo" className="h-12 mr-4" />
+               <img src="images/logo.png" alt="Logo" className="h-12 mr-4" />
               <h1 className="text-xl font-bold">Modern Apartments</h1>
             </div>
             <button 
@@ -98,8 +111,18 @@
               ))}
             </ul>
             <div className="language-switcher flex gap-2">
-              <img src="https://via.placeholder.com/30x20?text=EN" alt="English" className="cursor-pointer hover:scale-110 transition-transform" />
-              <img src="https://via.placeholder.com/30x20?text=BG" alt="Bulgarian" className="cursor-pointer hover:scale-110 transition-transform" />
+              <img 
+                src="images/uk-flag.png" 
+                alt="English" 
+                className="cursor-pointer hover:scale-110 transition-transform" 
+                onClick={() => setLanguage('en')}
+              />
+              <img 
+                src="images/bg-flag.png" 
+                alt="Bulgarian" 
+                className="cursor-pointer hover:scale-110 transition-transform" 
+                onClick={() => setLanguage('bg')}
+              />
             </div>
           </div>
         </nav>
